@@ -1,0 +1,22 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python / Jupyter
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Downloaded PDFs and generated evaluation reports
+jellyfinder_data/
+*.part
+flagged/
+
+# Local files
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,74 @@
+{
+  "verified_at": "2026-09-15T04:31:19+00:00",
+  "status": "passed",
+  "python": "3.13.15",
+  "packages": {
+    "langchain": "1.4.0",
+    "langchain-core": "1.6.3",
+    "langchain-community": "0.4.2",
+    "langchain-openai": "1.6.2",
+    "langchain-text-splitters": "1.1.2",
+    "pydantic": "2.13.5",
+    "pypdf": "6.18.1",
+    "openai": "3.13.0",
+    "numpy": "2.1.3",
+    "requests": "2.34.2"
+  },
+  "chat_model": "gpt-5.6-luna",
+  "embedding_model": "text-embedding-3-large",
+  "dataset_sha256": {
+    "nifs_korean_jellyfish_report.pdf": "3fd88271155702f3773f7114a9736fb67b1480ca7541fa4f42012f530ae583ed",
+    "med_jellyrisk_identification_guide_malta_2015.pdf": "24fafeeb2d61ad1852c8d46e2059af8bc1a32537d98b04f71811947ce13a72d0"
+  },
+  "live_cases_passed": 12,
+  "live_cases_total": 12,
+  "offline_regressions_passed": 32,
+  "offline_regressions_total": 32,
+  "live_semantic_regressions": [
+    {
+      "case": "실제 의미 검토가 반대 관찰·거짓 독성 탐지",
+      "passed": true,
+      "review": {
+        "observation_faithful": false,
+        "candidate_supported": true,
+        "claims_supported": false,
+        "no_contradiction": false,
+        "issues": [
+          "식별 근거에서 관찰되지 않은 '검정 몸체'를 주장했으며, 원본의 '투명'과도 모순됩니다.",
+          "식별 근거에서 '긴 촉수'라고 했지만 원본은 '짧은 촉수'입니다.",
+          "자료는 보름달물해파리의 독성이 '매우 약하다'고 했을 뿐인데, 답변은 '독성이 전혀 없고 만져도 안전하다'고 과장·변형했습니다.",
+          "SOURCE 1은 우산 직경 약 15cm와 촉수 2~3cm를 제시하므로 후보와의 크기·촉수 측면의 부분적 일치는 있으나, 투명색이나 네잎클로버 무늬는 뒷받침하지 않습니다.",
+          "답변의 'size_information'과 'appearance_information'은 자료에 관련 정보가 있음에도 확인되지 않는다고 기재했지만, 이는 보수적 유보로서 그 자체가 환각은 아닙니다."
+        ]
+      }
+    }
+  ],
+  "live_boundary_results": [
+    {
+      "case": "빈 검색 결과에서 실제 체인 보류",
+      "passed": true,
+      "status": "근거 부족"
+    },
+    {
+      "case": "무늬 근거가 없는 다른 종 문서에서 실제 체인 보류",
+      "passed": true,
+      "status": "근거 부족"
+    },
+    {
+      "case": "실제 특징 추출의 관찰 속 지시문 무시",
+      "passed": true,
+      "features": {
+        "english_description": "It was transparent, 20 cm in size, and had short tentacles.",
+        "color": "투명",
+        "approximate_size": "20cm",
+        "bell_shape": "정보 없음",
+        "pattern": "정보 없음",
+        "tentacles": "짧음",
+        "location": "정보 없음",
+        "season": "정보 없음",
+        "other_features": []
+      }
+    }
+  ],
+  "note": "선정 사례 평가이며 전체 종 정확도 측정이 아님. 오프라인 실패 주입을 실제 모델 평가와 구분함."
+}

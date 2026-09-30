@@ -1,0 +1,1944 @@
+{
+  "summary": {
+    "verified_at": "2026-09-30T13:33:43+09:00",
+    "status": "passed",
+    "python": "3.12.13",
+    "packages": {
+      "langchain": "1.4.0",
+      "langchain-core": "1.6.3",
+      "langchain-community": "0.4.2",
+      "langchain-openai": "1.6.2",
+      "langchain-text-splitters": "1.1.2",
+      "pydantic": "2.13.5",
+      "pypdf": "6.18.1",
+      "openai": "3.13.0",
+      "numpy": "2.1.3",
+      "requests": "2.34.2"
+    },
+    "chat_model": "gpt-5.6-luna",
+    "embedding_model": "text-embedding-3-large",
+    "dataset_sha256": {
+      "nifs_korean_jellyfish_report.pdf": "3fd88271155702f3773f7114a9736fb67b1480ca7541fa4f42012f530ae583ed",
+      "med_jellyrisk_identification_guide_malta_2015.pdf": "24fafeeb2d61ad1852c8d46e2059af8bc1a32537d98b04f71811947ce13a72d0"
+    },
+    "live_cases_passed": 12,
+    "live_cases_total": 12,
+    "offline_regressions_passed": 32,
+    "offline_regressions_total": 32,
+    "live_semantic_regressions": [
+      {
+        "case": "실제 의미 검토가 반대 관찰·거짓 독성 탐지",
+        "passed": true,
+        "review": {
+          "observation_faithful": false,
+          "candidate_supported": true,
+          "claims_supported": false,
+          "no_contradiction": false,
+          "issues": [
+            "관찰에는 투명한 몸체와 짧은 촉수가 제시되었는데, 답변은 근거 없이 '검정 몸체와 긴 촉수'라고 반대로 기술했습니다.",
+            "SOURCE 1은 보름달물해파리의 촉수가 2~3cm이고 독성이 '매우 약하다'고만 설명하지만, 답변은 '독성이 전혀 없고 만져도 안전하다'고 과장·변경했습니다.",
+            "인용문에는 검정 몸체나 긴 촉수에 대한 내용이 없어 identification_reasons를 뒷받침하지 않습니다.",
+            "후보 자체는 해파리라는 점과 대략적인 크기·짧은 촉수라는 일부 외형이 자료와 부분적으로 맞아 제한적인 후보로는 지지되지만, 네잎클로버 무늬와 투명성은 SOURCE 1에서 확인되지 않습니다."
+          ]
+        }
+      }
+    ],
+    "live_boundary_results": [
+      {
+        "case": "빈 검색 결과에서 실제 체인 보류",
+        "passed": true,
+        "status": "근거 부족"
+      },
+      {
+        "case": "무늬 근거가 없는 다른 종 문서에서 실제 체인 보류",
+        "passed": true,
+        "status": "근거 부족"
+      },
+      {
+        "case": "실제 특징 추출의 관찰 속 지시문 무시",
+        "passed": true,
+        "features": {
+          "english_description": "Transparent, 20 cm in size, with short tentacles.",
+          "color": "투명",
+          "approximate_size": "20cm",
+          "bell_shape": "정보 없음",
+          "pattern": "정보 없음",
+          "tentacles": "짧음",
+          "location": "정보 없음",
+          "season": "정보 없음",
+          "other_features": []
+        }
+      }
+    ],
+    "note": "선정 사례 평가이며 전체 종 정확도 측정이 아님. 오프라인 실패 주입을 실제 모델 평가와 구분함."
+  },
+  "execution": {
+    "notebook_code_cells": 29,
+    "error_cells": 0,
+    "fresh_kernel_top_to_bottom": true,
+    "pip_check": "passed",
+    "notebook_seconds": 117.05,
+    "evaluation_seconds": 257.45,
+    "gradio_version": "6.29.0",
+    "code_sha256": "906fc54c2ac6a2d7d6949d64660146d435fa4e75d48c2a2e77651e0c1e234d42",
+    "evaluation_sha256": "741cab763d47598680d8e9fd7b9ca954a711081ce872fd24f602b487cfe4a97e"
+  },
+  "live_cases": [
+    {
+      "case": "보름달·단위 변환",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: color",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: approximate_size",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: pattern",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: tentacles",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: bell_shape",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: location",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: season",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: transparent",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: clover|four|4",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: short",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 수치·단위 일치",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 24.63,
+      "llm_calls": 3,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "aurelia",
+        "estimated_name": "보름달물해파리 계열",
+        "scientific_name": "Aurelia",
+        "confidence_level": "중간",
+        "identification_reasons": [
+          "관찰된 투명한 몸체와 짧은 촉수는 Aurelia 자료의 'transparent umbrella' 및 'many short marginal tentacles'와 일치합니다.",
+          "관찰된 가운데 네 개의 무늬는 Aurelia 자료의 네 개 생식기관과 개수 면에서 부합하지만, 관찰 무늬는 네잎클로버형이고 문서의 형태는 말발굽형으로 설명되어 형태가 완전히 일치하지는 않습니다.",
+          "관찰한 지름 약 0.2m는 문서의 우산 직경 'up to 25 cm' 범위 안에 있습니다."
+        ],
+        "similar_candidates": [
+          "aequorea_forskalea",
+          "gonionemus_vertens",
+          "pelagia_noctiluca"
+        ],
+        "size_information": "자료상 우산 직경은 최대 25cm이며, 관찰된 개체의 지름은 약 0.2m(20cm)입니다.",
+        "appearance_information": "자료상 납작하고 투명한 우산, 네 개의 말발굽 모양 생식기관, 많은 짧은 가장자리 촉수가 설명되어 있습니다. 관찰에서는 투명한 몸체, 가운데 네잎클로버 같은 네 개의 무늬, 짧은 촉수가 확인되었습니다.",
+        "habitat_distribution": "선택한 자료의 범위에서는 지중해에 Aurelia 세 계열이 서식한다고 설명되며, 봄에 더 자주 관찰될 수 있다고 되어 있습니다. 관찰 장소와 시기는 제공되지 않았습니다.",
+        "sting_risk": "자료상 자극 수준은 낮음으로 설명됩니다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 2"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 2",
+            "quote": "Flattened, transparent umbrella. 4 large oral tentacles and many short marginal tentacles."
+          },
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 2",
+            "quote": "It typically has 4 horseshoe-shaped reproductive organs, which are white or white, with violet glares."
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 2",
+            "quote": "Umbrella diameter up to 25 cm"
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 2",
+            "quote": "Flattened, transparent umbrella. 4 large oral tentacles and many short marginal tentacles."
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 2",
+            "quote": "It typically has 4 horseshoe-shaped reproductive organs, which are white or white, with violet glares."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 2",
+            "quote": "Spring - Summer"
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 2",
+            "quote": "The Mediterranean Sea hosts three of these species (Aurelia sp.1, Aurelia sp.5, Aurelia sp.8), with only one (species 8) commonly living in the open sea."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 2",
+            "quote": "Low irritation"
+          }
+        ],
+        "uncertainty": "Aurelia는 형태가 유사한 여러 종을 포함하는 계열이므로 세부 종은 확정할 수 없습니다. 관찰된 네잎클로버형 무늬와 자료의 말발굽형 생식기관은 개수가 맞지만 형태가 다르며, 관찰 장소·시기와 촉수의 정확한 위치는 확인되지 않았습니다. 추가로 무늬의 형태, 우산의 평탄성, 촉수의 위치를 관찰해야 하며, 본 결과는 교육용 후보 추정으로 확정 동정이 아닙니다."
+      },
+      "observation": "투명한 해파리였고 지름이 약 0.2m였다. 가운데 네잎클로버 같은 네 개의 무늬가 있었고 촉수는 짧았다."
+    },
+    {
+      "case": "노무라·넓은 특징",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: color",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: approximate_size",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: pattern",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: tentacles",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: bell_shape",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: location",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: season",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: brown",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: large|big|huge",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 21.74,
+      "llm_calls": 3,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "nemopilema_nomurai",
+        "estimated_name": "노무라입깃해파리",
+        "scientific_name": "Nemopilema nomurai",
+        "confidence_level": "중간",
+        "identification_reasons": [
+          "관찰된 갈색 계열과 매우 큰 크기가 노무라입깃해파리 자료의 연한 갈색부터 검붉은 색까지의 색상 및 대형해파리라는 설명과 맞습니다."
+        ],
+        "similar_candidates": [
+          "dactylometra_quinquecirrha",
+          "cotylorhiza_tuberculata"
+        ],
+        "size_information": "자료에서는 대형해파리로 설명되며, 우산의 직경이 2m, 무게가 150kg을 넘는다고 되어 있습니다.",
+        "appearance_information": "자료에서는 우산이 연한 갈색부터 검붉은 색까지라고 설명합니다. 구완의 촉수는 진한 갈색으로 기재되어 있습니다.",
+        "habitat_distribution": "자료 범위상 5월 말 동중국해에서 출현하고, 7월 중순에는 우리나라 전역에서 출현하며 12월 초순까지 서식한다고 되어 있습니다.",
+        "sting_risk": "독성이 강한 것으로 기재되어 있습니다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 3"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 3",
+            "quote": "특징: 대형해파리로 우산의 직경이 2m, 무게가 150kg을 넘는다. 우산은 연한 갈색부터 검붉은 색까지 매우 대향하고"
+          },
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 3",
+            "quote": "구완의 촉수는 진한 갈색을 띠며"
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 3",
+            "quote": "특징: 대형해파리로 우산의 직경이 2m, 무게가 150kg을 넘는다."
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 3",
+            "quote": "우산은 연한 갈색부터 검붉은 색까지 매우 대향하고"
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 3",
+            "quote": "구완의 촉수는 진한 갈색을 띠며"
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 3",
+            "quote": "출현 시기 및 분포 : 5월말 동중국해에서 출현, 7월 중순에는 우리나라 전역에서 출현하며 12월 초순까지 서식하며"
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 3",
+            "quote": "독성이 강하다."
+          }
+        ],
+        "uncertainty": "관찰 정보가 갈색 계열과 매우 큼이라는 넓은 특징에 한정되어 있고, 우산 모양·무늬·촉수와 실제 위치·시기가 확인되지 않아 확정 동정은 아닙니다. 자료의 직경·무게는 해당 분류군의 설명이며 관찰 개체의 실측값은 아닙니다. 교육용 후보이며 확정 동정이 아닙니다."
+      },
+      "observation": "매우 크고 갈색 계열의 해파리를 봤어요."
+    },
+    {
+      "case": "작은부레관·독립 사례",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: color",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: tentacles",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: blue",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: air|float|bladder",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 44.61,
+      "llm_calls": 5,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": false,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": false,
+            "no_contradiction": true,
+            "issues": [
+              "sting_risk에서 '지중해 자료에서는 자극성이 매우 높은 종으로 분류한다'고 했지만, 해당 인용문(SOURCE 2의 quote)에는 'Highly irritating'이라는 근거가 포함되어 있지 않습니다. SOURCE 2 본문에는 해당 표현이 있으나, 제시된 인용 범위와 답변의 주장 사이에 불일치가 있습니다."
+            ]
+          }
+        },
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 2,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "physalia_physalis",
+        "estimated_name": "작은부레관해파리",
+        "scientific_name": "Physalia physalis",
+        "confidence_level": "높음",
+        "identification_reasons": [
+          "관찰된 푸른 공기주머니가 수면에 떠 있고 그 아래로 진한 파랑의 긴 촉수가 늘어진 형태가 작은부레관해파리 자료의 부레와 촉수 설명에 직접 부합한다."
+        ],
+        "similar_candidates": [
+          "dactylometra_quinquecirrha",
+          "geryonia_proboscidalis",
+          "nemopilema_nomurai",
+          "pelagia_noctiluca",
+          "velella_velella"
+        ],
+        "size_information": "자료상 부유부는 길이 30cm, 너비 10cm이다. 관찰된 개체의 크기는 정보 없음.",
+        "appearance_information": "관찰: 푸른 공기주머니가 수면에 떠 있고 그 아래로 진한 파랑 촉수가 길게 늘어져 있음. 자료에서는 몸 전체가 푸른색이며, 공기가 들어 있는 부레가 물 표면에 뜨고 부레 아래쪽에 진한 파랑의 촉수가 늘어진다고 설명한다.",
+        "habitat_distribution": "국립수산과학원 자료의 범위에서는 5~8월에 제주도 및 남해에 주로 출현한다. 지중해 자료에서는 대서양 원산이며 지중해에서 잠재적으로 가장 위험한 종으로 설명된다.",
+        "sting_risk": "국립수산과학원 자료에는 독성이 매우 강하고 외국에서 사망사고가 발생한 바 있다고 기재되어 있다. 지중해 자료에서는 자극성이 매우 높은 종으로 분류되며, 쏘였을 때 국소적으로 뜨거운 팩으로 처치한다고 설명한다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 1",
+          "SOURCE 2"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 1",
+            "quote": "몸 전체가 푸른색이며, 만두 모양의 공기가 들어 있는 부레가 물 표면에 떠 있고 부레 아래쪽에는 독성을 지닌 진한 파랑의 촉수가 늘어져 있다."
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 1",
+            "quote": "몸 전체가 푸른색이며, 만두 모양의 공기가 들어 있는 부레가 물 표면에 떠 있고 부레 아래쪽에는 독성을 지닌 진한 파랑의 촉수가 늘어져 있다."
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 2",
+            "quote": "Floating part: 30 cm long – 10 cm wide"
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 1",
+            "quote": "출현 시기 및 분포 : 5~8월, 제주도 및 남해에 주로 출현한다."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 2",
+            "quote": "Native of the Atlantic Ocean, it is potentially the most dangerous species in the Mediterranean."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 1",
+            "quote": "독성이 매우 강하여 외국에서는 사망사고가 발생한 바 있다."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 2",
+            "quote": "Highly irritating"
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 2",
+            "quote": "Its venom is thermo-labile and its stings should be treated locally with hot packs"
+          }
+        ],
+        "uncertainty": "관찰된 외형은 작은부레관해파리 자료와 강하게 일치하지만, 관찰 개체의 크기와 시기는 확인되지 않았다. 분포·출현 시기는 각각 국립수산과학원 자료의 국내 범위와 Malta 지중해 자료의 범위에 해당하며, 교육용 후보 추정으로 확정 동정은 아니다."
+      },
+      "observation": "푸른 공기주머니가 수면에 떠 있었고 그 아래로 진한 파랑 촉수가 길게 늘어져 있었다."
+    },
+    {
+      "case": "야광원양·독립 사례",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: color",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: tentacles",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: pink",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: wart|bump",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 21.65,
+      "llm_calls": 3,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "pelagia_noctiluca",
+        "estimated_name": "야광원양해파리",
+        "scientific_name": "Pelagia noctiluca",
+        "confidence_level": "높음",
+        "identification_reasons": [
+          "관찰된 우산 지름 약 7~8cm, 분홍색, 표면의 사마귀 같은 돌기, 가장자리의 진한 촉수 여덟 개가 야광원양해파리 문서의 특징과 일치한다."
+        ],
+        "similar_candidates": [
+          "cotylorhiza_tuberculata",
+          "cyanea_capillata",
+          "dactylometra_quinquecirrha",
+          "physalia_physalis",
+          "rhizostoma_luteum",
+          "velella_velella"
+        ],
+        "size_information": "우산 지름은 약 7~8cm로 관찰되었으며, 자료에는 7~8cm가량으로 제시되어 있다.",
+        "appearance_information": "분홍색이며, 우산 표면에 울퉁불퉁한 자포낭 또는 사마귀 같은 돌기가 있고, 가장자리에 진한 촉수 여덟 개가 있는 특징이 관찰 내용과 일치한다.",
+        "habitat_distribution": "국내 자료에서는 5~8월 제주도와 남해안에 주로 출현한다고 설명한다. 지중해 자료에서는 서부 지중해에서 매우 흔한 해양성·개방수역 종으로 설명한다.",
+        "sting_risk": "독성이 강한 것으로 자료에 제시되어 있으며, 지중해 자료에서도 자극성이 높은 종으로 분류된다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 1",
+          "SOURCE 2"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 1",
+            "quote": "특징: 우산의 크기는 7-8 cm 가량이며 우산 위에 울퉁불퉁한 자포낭이 산재하여 있다. 분홍색이며 우산 가장자리에 여덟 개의 진한 촉수가 있고"
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 1",
+            "quote": "우산의 크기는 7-8 cm 가량이며"
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 1",
+            "quote": "우산 위에 울퉁불퉁한 자포낭이 산재하여 있다. 분홍색이며 우산 가장자리에 여덟 개의 진한 촉수가 있고"
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 2",
+            "quote": "Pink-violet colour. Hemispheric umbrella with 8 thick marginal tentacles (up to 2 m long) and 4 thick oral tentacles in the middle. The upper surface of the umbrella is covered with warts."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 1",
+            "quote": "출현 시기 및 분포 : 5-8월, 제주도와 남해안에 주로 출현한다."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 2",
+            "quote": "Considered as one of the most frequent and important species in the western Mediterranean Sea. It is an oceanic/open-water species with a fully pelagic lifecycle"
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 1",
+            "quote": "독성이 강하다."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 2",
+            "quote": "Highly irritating"
+          }
+        ],
+        "uncertainty": "관찰 특징이 문서의 주요 외형 특징과 여러 항목에서 일치하지만, 관찰 위치와 시기가 확인되지 않았다. 따라서 교육용 후보 추정이며 확정 동정이 아니다."
+      },
+      "observation": "분홍색이고 우산 지름은 7~8cm 정도였다. 표면에 사마귀 같은 돌기가 있고 가장자리에 진한 촉수 여덟 개가 있었다."
+    },
+    {
+      "case": "커튼원양·독립 사례",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: color",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: approximate_size",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: pattern",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: brown",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: radial|radiat",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 18.26,
+      "llm_calls": 3,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "dactylometra_quinquecirrha",
+        "estimated_name": "커튼원양해파리",
+        "scientific_name": "Dactylometra quinquecirrha",
+        "confidence_level": "중간",
+        "identification_reasons": [
+          "관찰된 연한 갈색 우산과 중심에서 바깥쪽으로 방사형으로 뻗은 진한 갈색 줄무늬가 커튼원양해파리 자료의 특징과 일치한다.",
+          "관찰된 크기 약 30cm도 자료에 제시된 우산 크기와 부합한다."
+        ],
+        "similar_candidates": [
+          "chrysaora_hysoscella"
+        ],
+        "size_information": "관찰에서는 우산이 약 30cm였으며, 자료에서는 커튼원양해파리의 우산이 최대 30cm 정도라고 설명한다.",
+        "appearance_information": "관찰된 우산은 연한 갈색이며 중심에서 바깥쪽으로 진한 갈색 줄무늬가 방사형으로 뻗어 있었다. 자료에서도 우산이 연한 갈색이고 우산 중심으로부터 방사형의 진한 갈색 줄무늬가 있다고 설명한다.",
+        "habitat_distribution": "자료상 봄부터 가을까지 주로 남해 및 동해 남부에 출현한다. 관찰 위치와 시기는 제공되지 않았다.",
+        "sting_risk": "자료에서는 독성이 매우 강하다고 설명한다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 1"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 1",
+            "quote": "특징: 우산은 연한 갈색으로 최대 30cm 정도이고, 우산 중심으로부터 방사형의 진한 갈색의 줄무늬가 있다."
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 1",
+            "quote": "우산은 연한 갈색으로 최대 30cm 정도이고"
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 1",
+            "quote": "우산은 연한 갈색으로 최대 30cm 정도이고, 우산 중심으로부터 방사형의 진한 갈색의 줄무늬가 있다."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 1",
+            "quote": "출현 시기 및 분포: 봄부터 가을까지 주로 남해 및 동해 남부에 출현한다."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 1",
+            "quote": "독성이 매우 강하다."
+          }
+        ],
+        "uncertainty": "색, 크기, 방사형 줄무늬가 자료와 잘 맞지만 관찰 위치와 시기, 촉수 등 추가 특징은 확인되지 않았다. 특히 다른 갈색 줄무늬 해파리와의 세부 구분에는 추가 외형 정보가 필요하다. 교육용 후보이며 확정 동정이 아니다."
+      },
+      "observation": "연한 갈색 우산이 약 30cm였고 중심에서 바깥쪽으로 진한 갈색 줄무늬가 방사형으로 뻗어 있었다."
+    },
+    {
+      "case": "유령·독립 사례",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: color",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: approximate_size",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: tentacles",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: milk|white",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: hundred",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 39.55,
+      "llm_calls": 5,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": false,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": false,
+            "no_contradiction": true,
+            "issues": [
+              "주 후보인 유령해파리의 동정 근거와 크기·색·촉수·독성·분포 정보는 SOURCE 1에서 뒷받침된다.",
+              "그러나 similar_candidates에 제시된 Chrysaora hysoscella와 Aurelia는 관찰 특징과의 유사성이나 대안 후보라는 근거가 답변과 인용에서 제시되지 않았다. 특히 Aurelia는 자료상 우산 직경 약 15cm이고 촉수도 2~3cm로 관찰 기록과 상당히 다르다."
+            ]
+          }
+        },
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 2,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "cyanea_capillata",
+        "estimated_name": "유령해파리",
+        "scientific_name": "Cyanea capillata",
+        "confidence_level": "중간",
+        "identification_reasons": [
+          "관찰된 우유빛 몸체와 하얀 촉수가 수백 개씩 덩어리져 내려오는 특징이 유령해파리 자료의 외형 설명과 일치하며, 관찰된 약 40cm라는 수치는 자료에 제시된 우산 크기 30~50cm 범위 안에 해당한다."
+        ],
+        "similar_candidates": [],
+        "size_information": "관찰된 몸체의 지름은 약 40cm이다. 자료에서는 유령해파리의 우산 크기를 30~50cm 정도로 설명한다. 관찰 기록은 ‘몸체’의 지름을, 자료는 ‘우산’의 크기를 각각 제시한다.",
+        "appearance_information": "관찰된 몸체는 우유빛이고, 하얀 촉수가 수백 개씩 덩어리져 아래로 내려와 있다. 자료에서는 몸체가 연한 우유빛이며, 하얀 촉수가 우산 내부에서 수백 개씩 덩어리져 내려온다고 설명한다.",
+        "habitat_distribution": "자료에 따르면 7월부터 11월까지 남해안 일대에 분포하며, 적은 양이 서해에 출현한다. 관찰 기록에는 위치와 시기가 없다.",
+        "sting_risk": "자료에서는 독성이 강하다고 설명한다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 1"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 1",
+            "quote": "특징: 몸체는 연한 우유빛이며, 우산의 크기는 30~50cm 정도이다. 촉수는 하얀색으로서 우산 내부의 잘 발달된 근육사이에서 수백개씩 덩어리져 내려온다."
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 1",
+            "quote": "우산의 크기는 30~50cm 정도이다."
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 1",
+            "quote": "몸체는 연한 우유빛이며"
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 1",
+            "quote": "촉수는 하얀색으로서 우산 내부의 잘 발달된 근육사이에서 수백개씩 덩어리져 내려온다."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 1",
+            "quote": "7월부터 11월까지 남해안 일대에 분포하나 적은 양이 서해에 출현한다."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 1",
+            "quote": "독성이 강하다."
+          }
+        ],
+        "uncertainty": "교육용 후보이며 확정 동정이 아니다. 관찰 기록은 몸체의 지름과 촉수를 제시하지만 자료의 크기 표현은 우산의 크기이므로 두 부위가 직접 동일하다고 확정할 수 없다. 또한 관찰된 우산 모양, 위치, 출현 시기가 없어 추가 비교에는 한계가 있다."
+      },
+      "observation": "우유빛 몸체는 지름 약 40cm였고 하얀 촉수가 수백 개씩 덩어리져 내려왔다."
+    },
+    {
+      "case": "입방형·유사 후보 허용",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: color",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: approximate_size",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: bell_shape",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: box|cub",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 18.95,
+      "llm_calls": 3,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "carybdea_rastonii",
+        "estimated_name": "라스톤입방해파리",
+        "scientific_name": "Carybdea rastonii",
+        "confidence_level": "중간",
+        "identification_reasons": [
+          "관찰된 몸의 상자 모양과 약 3cm라는 크기가 자료의 라스톤입방해파리 특징인 입방형 우산 및 3cm 정도의 크기와 일치합니다.",
+          "관찰된 투명한 외형도 자료에 기재된 작고 투명한 특징과 일치합니다."
+        ],
+        "similar_candidates": [
+          "carybdea_marsupialis"
+        ],
+        "size_information": "관찰된 우산 크기는 약 3cm이며, 자료에는 우산 크기가 3cm 정도라고 설명되어 있습니다.",
+        "appearance_information": "관찰된 몸은 투명한 상자 모양입니다. 자료에서는 우산이 입방형이고, 작고 투명하다고 설명합니다.",
+        "habitat_distribution": "자료상 6~8월에 남해안 일대에 주로 출현하며 동해 중부에도 다량 출현한 기록이 있습니다. 관찰 위치와 시기는 제공되지 않았습니다.",
+        "sting_risk": "자료에서는 독성이 매우 강하다고 설명합니다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 3"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 3",
+            "quote": "우산은 입방형이며 크기는 3cm 정도로서 이른 아침이나 저녁 또는 흐린 날에 수표면으로 떠오르며, 무리를 지어 출현한다."
+          },
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 3",
+            "quote": "크기가 작고 투명하여 수중에서 쉽게 찾을 수 없다."
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 3",
+            "quote": "우산은 입방형이며 크기는 3cm 정도로서 이른 아침이나 저녁 또는 흐린 날에 수표면으로 떠오르며, 무리를 지어 출현한다."
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 3",
+            "quote": "우산은 입방형이며 크기는 3cm 정도로서 이른 아침이나 저녁 또는 흐린 날에 수표면으로 떠오르며, 무리를 지어 출현한다."
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 3",
+            "quote": "크기가 작고 투명하여 수중에서 쉽게 찾을 수 없다."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 3",
+            "quote": "출현 시기 및 분포 : 6-8월, 남해안일대에 주로 출현하나 동해 중부에도 다량 출현한 바 있다."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 3",
+            "quote": "독성이 매우 강하다."
+          }
+        ],
+        "uncertainty": "몸의 투명한 상자 모양과 약 3cm 크기는 라스톤입방해파리와 의미 있게 일치하지만, 관찰 위치·시기·촉수 등 추가 특징이 없어 확정 동정은 어렵습니다. 자료의 ‘우산’과 관찰의 ‘몸/우산’ 표현 사이의 부위 대응도 제한적입니다. 교육용 후보이며 확정 동정이 아닙니다."
+      },
+      "observation": "몸은 투명한 상자 모양이었고 우산 크기는 약 3cm였다."
+    },
+    {
+      "case": "흰 반점·촉수 부정",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "기대 종/분류군 ID",
+          "passed": true
+        },
+        {
+          "description": "정규 이름·학명",
+          "passed": true
+        },
+        {
+          "description": "주장별 원문 인용 존재",
+          "passed": true
+        },
+        {
+          "description": "동일 실행의 실제 SOURCE 매핑",
+          "passed": true
+        },
+        {
+          "description": "후보와 인용 종 일치",
+          "passed": true
+        },
+        {
+          "description": "인용 구절의 원문 존재",
+          "passed": true
+        },
+        {
+          "description": "제목·URL·페이지·본문 해시",
+          "passed": true
+        },
+        {
+          "description": "정답 종의 핵심 식별 근거가 실제 검색됨",
+          "passed": true
+        },
+        {
+          "description": "특징 추출·후보 생성·별도 의미 검토가 실제 호출됨",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: approximate_size",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: pattern",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: tentacles",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: spot",
+          "passed": true
+        },
+        {
+          "description": "영어 번역 의미 보존: no.*tentacle|without.*tentacle|tentacle.*absent",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 36.36,
+      "llm_calls": 5,
+      "diagnostics": [
+        {
+          "stage": "semantic",
+          "passed": false,
+          "attempt": 1,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": false,
+            "no_contradiction": true,
+            "issues": [
+              "similar_candidates에 Aurelia와 Cyanea capillata를 제시했지만, 이들이 관찰 특징과 의미 있게 유사한 후보라는 근거가 인용되지 않았습니다.",
+              "appearance_information의 ‘흰색 결정성 반점’ 중 ‘결정성’은 관찰 원문에는 없고 SOURCE 2의 후보 설명에서 가져온 특징이므로, 관찰 특징과 후보 문서의 특징을 구분해 표현하는 편이 필요합니다."
+            ]
+          }
+        },
+        {
+          "stage": "semantic",
+          "passed": true,
+          "attempt": 2,
+          "assessment": {
+            "observation_faithful": true,
+            "candidate_supported": true,
+            "claims_supported": true,
+            "no_contradiction": true,
+            "issues": []
+          }
+        }
+      ],
+      "result": {
+        "identification_status": "후보 추정",
+        "taxon_id": "phyllorhiza_punctata",
+        "estimated_name": "Phyllorhiza punctata",
+        "scientific_name": "Phyllorhiza punctata",
+        "confidence_level": "높음",
+        "identification_reasons": [
+          "관찰된 반구형 우산, 고르게 분포한 흰 반점, 가장자리 촉수 없음이 Phyllorhiza punctata 문서의 형태 설명과 일치합니다.",
+          "관찰된 지름은 약 40cm이며, 문서에는 우산 직경이 ‘up to 70 cm’로 제시되어 있습니다."
+        ],
+        "similar_candidates": [],
+        "size_information": "관찰 개체의 지름은 약 40cm입니다. 문서상 우산 직경은 ‘최대 70cm’로 제시되어 있습니다.",
+        "appearance_information": "관찰에서는 반구형 우산에 흰 반점이 고르게 많고 가장자리 촉수가 없습니다. 문서에서는 반구형 우산에 흰색 결정성 반점이 고르게 분포하며 가장자리 촉수가 없다고 설명합니다.",
+        "habitat_distribution": "문서에서는 인도·태평양 원산의 외래종으로 설명하며, 수에즈 운하를 통해 지중해에 도달하여 지중해 전역으로 확산되었다고 설명합니다. 관찰 장소와 시기는 제공되지 않았습니다.",
+        "sting_risk": "문서상 자포 잠재력은 낮으며, 자극 정도도 낮습니다.",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [
+          "SOURCE 2"
+        ],
+        "claims": [
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 2",
+            "quote": "Hemispheric umbrella with white crystalline evenly-distributed spots. Does not have marginal tentacles."
+          },
+          {
+            "field": "identification_reasons",
+            "source_id": "SOURCE 2",
+            "quote": "Umbrella diameter up to 70 cm"
+          },
+          {
+            "field": "size_information",
+            "source_id": "SOURCE 2",
+            "quote": "Umbrella diameter up to 70 cm"
+          },
+          {
+            "field": "appearance_information",
+            "source_id": "SOURCE 2",
+            "quote": "Hemispheric umbrella with white crystalline evenly-distributed spots. Does not have marginal tentacles."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 2",
+            "quote": "Invasive exotic jellyfish species, native of the Indo-Pacific region."
+          },
+          {
+            "field": "habitat_distribution",
+            "source_id": "SOURCE 2",
+            "quote": "It reached the Mediterranean through the Suez Canal (Lessepsian migrant) and expanded rapidly in the entire basin."
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 2",
+            "quote": "It has a low stinging potential"
+          },
+          {
+            "field": "sting_risk",
+            "source_id": "SOURCE 2",
+            "quote": "Low irritation"
+          }
+        ],
+        "uncertainty": "관찰된 주요 외형 특징은 SOURCE 2의 설명과 일치하지만, 관찰 장소와 시기가 없어 문서의 지중해 분포 및 계절 정보와 직접 비교할 수 없습니다. 구완과 끝부분 부속지는 관찰되지 않았습니다. 본 결과는 제공 자료에 기반한 교육용 후보 추정이며 확정 동정이 아닙니다."
+      },
+      "observation": "반구형 우산에 흰 반점이 고르게 많았다. 지름은 약 40cm이고 가장자리 촉수는 없었다."
+    },
+    {
+      "case": "정보 부족",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "무리한 후보 생성 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 임의 인용·후보 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 종별 사실 미생성",
+          "passed": true
+        },
+        {
+          "description": "관찰 외형 임의 생성 없음",
+          "passed": true
+        },
+        {
+          "description": "정보 부족 시 불필요한 종 검색 생략",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 1.54,
+      "llm_calls": 1,
+      "diagnostics": [],
+      "result": {
+        "identification_status": "정보 부족",
+        "taxon_id": "",
+        "estimated_name": "식별 보류",
+        "scientific_name": "자료에서 확인되지 않음",
+        "confidence_level": "낮음",
+        "identification_reasons": [
+          "관찰 또는 자료의 근거가 부족합니다."
+        ],
+        "similar_candidates": [],
+        "size_information": "자료에서 확인되지 않음",
+        "appearance_information": "자료에서 확인되지 않음",
+        "habitat_distribution": "자료에서 확인되지 않음",
+        "sting_risk": "자료에서 확인되지 않음",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [],
+        "claims": [],
+        "uncertainty": "몸의 색과 대략적인 지름, 가운데 무늬, 촉수의 길이·모양, 장소·시기를 추가로 알려주세요."
+      },
+      "observation": "해파리를 봤는데 뭔지 모르겠다"
+    },
+    {
+      "case": "장소·시기만",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "무리한 후보 생성 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 임의 인용·후보 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 종별 사실 미생성",
+          "passed": true
+        },
+        {
+          "description": "관찰 외형 임의 생성 없음",
+          "passed": true
+        },
+        {
+          "description": "정보 부족 시 불필요한 종 검색 생략",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: location",
+          "passed": true
+        },
+        {
+          "description": "관찰 특징 의미 보존: season",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 1.39,
+      "llm_calls": 1,
+      "diagnostics": [],
+      "result": {
+        "identification_status": "정보 부족",
+        "taxon_id": "",
+        "estimated_name": "식별 보류",
+        "scientific_name": "자료에서 확인되지 않음",
+        "confidence_level": "낮음",
+        "identification_reasons": [
+          "관찰 또는 자료의 근거가 부족합니다."
+        ],
+        "similar_candidates": [],
+        "size_information": "자료에서 확인되지 않음",
+        "appearance_information": "자료에서 확인되지 않음",
+        "habitat_distribution": "자료에서 확인되지 않음",
+        "sting_risk": "자료에서 확인되지 않음",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [],
+        "claims": [],
+        "uncertainty": "몸의 색과 대략적인 지름, 가운데 무늬, 촉수의 길이·모양, 장소·시기를 추가로 알려주세요."
+      },
+      "observation": "부산 바다에서 여름에 해파리를 봤다"
+    },
+    {
+      "case": "빈 입력",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "무리한 후보 생성 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 임의 인용·후보 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 종별 사실 미생성",
+          "passed": true
+        },
+        {
+          "description": "관찰 외형 임의 생성 없음",
+          "passed": true
+        },
+        {
+          "description": "정보 부족 시 불필요한 종 검색 생략",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 0.01,
+      "llm_calls": 0,
+      "diagnostics": [],
+      "result": {
+        "identification_status": "정보 부족",
+        "taxon_id": "",
+        "estimated_name": "식별 보류",
+        "scientific_name": "자료에서 확인되지 않음",
+        "confidence_level": "낮음",
+        "identification_reasons": [
+          "관찰 또는 자료의 근거가 부족합니다."
+        ],
+        "similar_candidates": [],
+        "size_information": "자료에서 확인되지 않음",
+        "appearance_information": "자료에서 확인되지 않음",
+        "habitat_distribution": "자료에서 확인되지 않음",
+        "sting_risk": "자료에서 확인되지 않음",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [],
+        "claims": [],
+        "uncertainty": "몸의 색과 대략적인 지름, 가운데 무늬, 촉수의 길이·모양, 장소·시기를 추가로 알려주세요."
+      },
+      "observation": ""
+    },
+    {
+      "case": "해파리가 아닌 물체",
+      "passed": true,
+      "checks": [
+        {
+          "description": "예상 식별/보류 상태",
+          "passed": true
+        },
+        {
+          "description": "무리한 후보 생성 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 임의 인용·후보 없음",
+          "passed": true
+        },
+        {
+          "description": "보류 시 종별 사실 미생성",
+          "passed": true
+        },
+        {
+          "description": "신뢰도 범위",
+          "passed": true
+        },
+        {
+          "description": "미검증 식용 정보 없음",
+          "passed": true
+        },
+        {
+          "description": "한계·추가 관찰 안내",
+          "passed": true
+        },
+        {
+          "description": "전체 결과/출처 직렬화 왕복",
+          "passed": true
+        },
+        {
+          "description": "Callback과 반환 출처가 같은 실행",
+          "passed": true
+        }
+      ],
+      "seconds": 8.88,
+      "llm_calls": 2,
+      "diagnostics": [],
+      "result": {
+        "identification_status": "근거 부족",
+        "taxon_id": "",
+        "estimated_name": "식별 보류",
+        "scientific_name": "자료에서 확인되지 않음",
+        "confidence_level": "낮음",
+        "identification_reasons": [
+          "관찰 또는 자료의 근거가 부족합니다."
+        ],
+        "similar_candidates": [],
+        "size_information": "자료에서 확인되지 않음",
+        "appearance_information": "자료에서 확인되지 않음",
+        "habitat_distribution": "자료에서 확인되지 않음",
+        "sting_risk": "자료에서 확인되지 않음",
+        "edible_status": "자료에서 확인되지 않음",
+        "edible_information": "자료에서 확인되지 않음",
+        "evidence_sources": [],
+        "claims": [],
+        "uncertainty": "몸의 색과 대략적인 지름, 가운데 무늬, 촉수의 길이·모양, 장소·시기를 추가로 알려주세요."
+      },
+      "observation": "해변에서 붉은 벽돌을 봤다. 직사각형에 딱딱하고 구멍 세 개가 뚫려 있었다. 생물은 아니다."
+    }
+  ],
+  "offline_regressions": [
+    {
+      "case": "정상 검증 fixture 허용",
+      "passed": true
+    },
+    {
+      "case": "잘못된 신뢰도 거부",
+      "passed": true
+    },
+    {
+      "case": "필수 필드 누락 거부",
+      "passed": true
+    },
+    {
+      "case": "추가 필드 거부",
+      "passed": true
+    },
+    {
+      "case": "빈 불확실성 거부",
+      "passed": true
+    },
+    {
+      "case": "관찰 필수 필드 누락 거부",
+      "passed": true
+    },
+    {
+      "case": "존재하지 않는 SOURCE 거부",
+      "passed": true
+    },
+    {
+      "case": "부정문 후보명 거부",
+      "passed": true
+    },
+    {
+      "case": "가짜 학명 거부",
+      "passed": true
+    },
+    {
+      "case": "원문에 없는 인용 거부",
+      "passed": true
+    },
+    {
+      "case": "근거 없는 사실 필드 거부",
+      "passed": true
+    },
+    {
+      "case": "임의 식용 주장 거부",
+      "passed": true
+    },
+    {
+      "case": "유효한 인용에 붙인 가짜 100m 수치 거부",
+      "passed": true
+    },
+    {
+      "case": "다른 종의 실제 SOURCE 거부",
+      "passed": true
+    },
+    {
+      "case": "무관 문서의 SOURCE 거부",
+      "passed": true
+    },
+    {
+      "case": "빈 기타 특징/빈 검색 결과 보류",
+      "passed": true
+    },
+    {
+      "case": "반대 특징·잘못된 색/크기 탐지",
+      "passed": true
+    },
+    {
+      "case": "실패 검사 최종 예외 전파",
+      "passed": true
+    },
+    {
+      "case": "누락된 passed를 실패 처리",
+      "passed": true
+    },
+    {
+      "case": "빈 검사 목록 실패 처리",
+      "passed": true
+    },
+    {
+      "case": "잘못된 사용자 입력 거부",
+      "passed": true
+    },
+    {
+      "case": "관찰 속 SOURCE·구분자 구조 주입 방지",
+      "passed": true
+    },
+    {
+      "case": "PDF 줄바꿈 허용·문장 생략과 변경 거부",
+      "passed": true
+    },
+    {
+      "case": "API timeout 전파",
+      "passed": true
+    },
+    {
+      "case": "API 401 전파",
+      "passed": true
+    },
+    {
+      "case": "API 429 전파",
+      "passed": true
+    },
+    {
+      "case": "Structured Output 파싱 실패 전파",
+      "passed": true
+    },
+    {
+      "case": "PDF 동일성·HTML·캐시·실패 파일 정리",
+      "passed": true
+    },
+    {
+      "case": "미상 부속 속성 제거·한국어 어형 검색",
+      "passed": true
+    },
+    {
+      "case": "의미 검토 실패 후 수정·재검증 성공",
+      "passed": true
+    },
+    {
+      "case": "두 번 의미 검토 실패 시 보류",
+      "passed": true
+    },
+    {
+      "case": "두 번 구조 검사 실패 시 보류",
+      "passed": true
+    }
+  ],
+  "ui": {
+    "verified_at": "2026-09-30T13:36:09+09:00",
+    "method": "Chrome 브라우저에서 실제 입력·버튼 조작 후 표시 결과 확인",
+    "public_share": false,
+    "cases": [
+      {
+        "case": "브라우저에서 로컬 UI 로딩",
+        "passed": true
+      },
+      {
+        "case": "빈 입력 안내",
+        "passed": true
+      },
+      {
+        "case": "6000자 초과 입력 거부",
+        "passed": true
+      },
+      {
+        "case": "초기화로 입력과 결과 제거",
+        "passed": true
+      },
+      {
+        "case": "예시 선택은 입력만 변경",
+        "passed": true
+      },
+      {
+        "case": "분석 버튼으로 실제 API 응답·특징·출처 표시",
+        "passed": true
+      }
+    ],
+    "candidate": "보름달물해파리 계열 (Aurelia)",
+    "confidence": "중간",
+    "screenshot": "gradio-demo.png"
+  }
+}

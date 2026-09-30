@@ -1,0 +1,12 @@
+# 2026-09-30 Python 3.12.13 새 환경에서 설치 및 pip check를 통과한 버전입니다.
+# 전체 설치 환경의 버전 목록은 requirements-lock.txt에 있습니다.
+langchain==1.4.0
+langchain-core==1.6.3
+langchain-community==0.4.2
+langchain-openai==1.6.2
+langchain-text-splitters==1.1.2
+pydantic==2.13.5
+pypdf==6.18.1
+openai==3.13.0
+requests==2.34.2
+numpy==2.1.3

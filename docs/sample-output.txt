@@ -1,0 +1,39 @@
+2026-09-30 새 커널에서 실행한 노트북 26절의 실제 출력입니다.
+모델 응답은 실행마다 달라질 수 있습니다.
+
+=================================================================
+🪼 JellyFinder 분석 결과
+
+[식별 상태] 후보 추정
+[추정 후보] 보름달물해파리 계열 (Aurelia)
+[신뢰도] 중간
+
+[판단 근거]
+• 관찰된 투명한 외형은 Aurelia 자료의 투명한 우산 설명과 맞습니다.
+• 관찰된 약 20cm의 크기는 자료에 제시된 Aurelia의 우산 직경 최대 25cm 범위 안에 있습니다. 다만 관찰 기록의 측정 부위와 자료의 직경은 동일하다고 확인할 수 없습니다.
+• 관찰된 비교적 짧은 촉수는 자료에 제시된 많은 짧은 주변 촉수와 맞습니다.
+• 가운데의 네잎클로버처럼 보이는 무늬는 자료의 4개 말굽 모양 생식기관과 넓게 유사할 수 있으나, 두 구조가 실제로 같은 것인지는 확인되지 않았습니다.
+
+[크기] 관찰 크기는 약 20cm입니다. SOURCE 2는 Aurelia의 우산 직경을 최대 25cm로 설명합니다. 관찰 기록은 측정 부위와 방식이 특정되지 않았으므로 관찰 크기를 자료의 우산 직경과 직접 동일시할 수 없습니다.
+
+[외형] 관찰된 해파리는 투명하고, 가운데에 네잎클로버처럼 보이는 무늬가 있으며, 촉수는 비교적 짧아 보였습니다. SOURCE 2는 Aurelia를 투명한 우산과 많은 짧은 주변 촉수, 4개의 말굽 모양 생식기관으로 설명합니다. 관찰된 중앙 무늬가 실제로 해당 생식기관인지는 확인되지 않았습니다.
+
+[서식·분포] 관찰 장소와 시기는 정보가 없습니다. SOURCE 2의 자료 범위인 지중해에서는 Aurelia 계열이 봄에 더 자주 관찰된다고 설명하며, 지중해에 Aurelia 세 계열이 있다고 설명합니다. 이는 지중해 자료의 범위이며, 관찰 개체의 실제 분포와 시기를 확인하는 정보는 아닙니다.
+
+[쏘임 위험] SOURCE 2에서는 Aurelia를 자극이 낮은 것으로 분류합니다. 관찰만으로 실제 개체의 자극성을 확인할 수는 없습니다.
+
+[식용 정보] 자료에서 확인되지 않음
+
+[사용한 근거]
+• SOURCE 2: MED-JELLYRISK Identification Guide (Malta, 2015) / PDF 12
+  https://ocean.mt/jellyfish/public/doc/Englishguide.pdf
+  [identification_reasons] “Flattened, transparent umbrella. 4 large oral tentacles and many short marginal tentacles. It typically has 4 horseshoe-shaped reproductive organs”
+  [size_information] “Umbrella diameter up to 25 cm”
+  [appearance_information] “Flattened, transparent umbrella. 4 large oral tentacles and many short marginal tentacles. It typically has 4 horseshoe-shaped reproductive organs, which are white or white, with violet glares.”
+  [habitat_distribution] “The Mediterranean Sea hosts three of these species (Aurelia sp.1, Aurelia sp.5, Aurelia sp.8), with only one (species 8) commonly living in the open sea.”
+  [habitat_distribution] “It is more frequently spotted in spring, when it might be found in large numbers.”
+  [sting_risk] “Low irritation”
+
+[한계·추가 관찰] Aurelia는 형태적으로 유사하지만 유전적으로 구별되는 여러 종을 묶어 사용하는 계열 수준 명칭이므로 세부 종은 확정할 수 없습니다. 관찰 장소와 시기가 없고, 약 20cm라는 크기의 측정 부위도 특정되지 않았습니다. 네잎클로버 같은 중앙 무늬가 실제로 4개의 생식기관인지, 짧게 보인 구조가 주변 촉수인지 확인하려면 사진, 측정 대상이 우산 직경인지 여부, 무늬의 형태와 위치, 촉수 배열에 대한 추가 관찰이 필요합니다. 이 결과는 교육용 후보이며 확정 동정이 아닙니다.
+
+교육용 후보 추정입니다. 실제 동정이나 섭취 판단을 대신하지 않습니다.
